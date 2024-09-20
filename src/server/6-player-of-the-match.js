@@ -31,8 +31,8 @@ function problem6() {
         topPlayer = player;
       }
     }
-    final_result[season] = { "name": topPlayer, "Times": max };
-}
+    final_result[season] = { name: topPlayer, Times: max };
+  }
 
   return final_result;
 }

@@ -26,23 +26,21 @@ function problem4() {
 
       let no_ball = deliveriesdata[key]["noball_runs"];
       let wide_ball = deliveriesdata[key]["wide_runs"];
-      
-      if (wide_ball ==="0" && no_ball === "0") {
+
+      if (wide_ball === "0" && no_ball === "0") {
         result[Bowler_name].balls_bowled++;
       }
     }
   }
-   let economy=[];
-   for(let key3 in result){
-    let Conceded_runs=parseInt(result[key3].given_runs);
-     let Balls_bowled=parseInt(result[key3].balls_bowled);
-      
-     let economyrate= (Conceded_runs/Balls_bowled)*6;
-     economy.push({BowlerName:key3 , Economy:economyrate});
-   }
-   economy.sort((a,b)=>a.Economy-b.Economy);
-  return  economy.slice(0,10);
-//    return economy;
+  let economy = [];
+  for (let key3 in result) {
+    let Conceded_runs = parseInt(result[key3].given_runs);
+    let Balls_bowled = parseInt(result[key3].balls_bowled);
+
+    let economyrate = (Conceded_runs / Balls_bowled) * 6;
+    economy.push({ BowlerName: key3, Economy: economyrate });
+  }
+  economy.sort((a, b) => a.Economy - b.Economy);
+  return economy.slice(0, 10);
 }
-// problem4();
 console.log(problem4());
