@@ -1,6 +1,7 @@
 const matchesdata = require(`../data/matches.json`);
 const deliveriesdata = require(`../data/deliveries.json`);
-
+const fs=require(`fs`);
+const path=require(`path`);
 //Q6 Find a player who has won the highest number of Player of the Match awards for each season
 
 function problem6() {
@@ -36,5 +37,6 @@ function problem6() {
 
   return final_result;
 }
+let Result=problem6();
+fs.writeFileSync(path.join(__dirname,`../public/output/player-of-the-match.json`),JSON.stringify(Result),"utf-8");
 
-console.log(problem6());

@@ -1,5 +1,7 @@
 const matchdata = require(`../data/matches.json`);
 const deliveriesdata = require(`../data/deliveries.json`);
+const fs=require(`fs`);
+const path=require(`path`);
 
 // Q9 Find the bowler with the best economy in super overs
 
@@ -27,8 +29,11 @@ function problem9() {
       best_bowler = bowler;
     }
   }
-  console.log(
-    `The best economy is ${best_economy} The bowler name is ${best_bowler}`
-  );
+  
+  return   `The best economy is ${best_economy} The bowler name is ${best_bowler}`
+  
 }
-problem9();
+let Result=problem9();
+fs.writeFileSync(path.join(__dirname,`../public/output/Best-economy.json`),JSON.stringify(Result),"utf-8");
+
+

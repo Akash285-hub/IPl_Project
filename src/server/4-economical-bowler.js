@@ -1,5 +1,7 @@
 const matchdata = require(`../data/matches.json`);
 const deliveriesdata = require(`../data/deliveries.json`);
+const fs=require(`fs`);
+const path=require(`path`);
 //Q4 Top 10 economical bowlers in the year 2015
 
 function problem4() {
@@ -42,5 +44,9 @@ function problem4() {
   }
   economy.sort((a, b) => a.Economy - b.Economy);
   return economy.slice(0, 10);
+  
 }
-console.log(problem4());
+// console.log(problem4());
+let Result=problem4();
+fs.writeFileSync(path.join(__dirname,`../public/output/economical-bowlers.json`),JSON.stringify(Result),"utf-8");
+

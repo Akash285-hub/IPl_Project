@@ -1,5 +1,6 @@
 const matchesdata = require(`../data/matches.json`);
-
+const fs=require(`fs`);
+const path=require(`path`);
 //Q2 Number of matches won per team per year in IPL.
 function problem2() {
   let result = {};
@@ -23,5 +24,8 @@ function problem2() {
   }
   return result;
 }
-console.log(problem2());
-// problem2()
+// console.log(problem2());
+// // problem2()
+
+let Result=problem2();
+fs.writeFileSync(path.join(__dirname,`../public/output/matches-won-per-year.json`),JSON.stringify(Result),"utf-8");

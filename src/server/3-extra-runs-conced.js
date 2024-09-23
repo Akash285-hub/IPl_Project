@@ -1,6 +1,7 @@
 const matchdata = require(`../data/matches.json`);
 const deliveriesdata = require(`../data/deliveries.json`);
-
+const fs=require(`fs`);
+const path=require(`path`);
 //Q3 Extra runs conceded per team in the year 2016
 function problem3() {
   let match_id = [];
@@ -22,7 +23,9 @@ function problem3() {
       result[Bowling_Team] += extra_runs;
     }
   }
-  console.log(result);
+  return result;
 }
 
-problem3();
+let Result=problem3();
+fs.writeFileSync(path.join(__dirname,`../public/output/extra-runs-conced.json`),JSON.stringify(Result),"utf-8");
+

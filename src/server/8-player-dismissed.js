@@ -1,6 +1,7 @@
 const matchdata = require(`../data/matches.json`);
 const deliveriesdata = require(`../data/deliveries.json`);
-
+const fs=require(`fs`);
+const path=require(`path`);
 //Q8 Find the highest number of times one player has been dismissed by another player
 
 function problem8() {
@@ -32,8 +33,10 @@ function problem8() {
       }
     }
   }
-  console.log(
-    `The higest number of dissmisals is ${max} when ${bowler_name} dismissed ${batsman_name}`
-  );
+  
+  return   `The higest number of dissmisals is ${max} when ${bowler_name} dismissed ${batsman_name}`;
+  
 }
-problem8();
+let Result=problem8();
+fs.writeFileSync(path.join(__dirname,`../public/output/player-dismissed.json`),JSON.stringify(Result),"utf-8");
+

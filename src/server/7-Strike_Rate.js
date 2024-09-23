@@ -1,5 +1,7 @@
 const matchdata = require(`../data/matches.json`);
 const deliveriesdata = require(`../data/deliveries.json`);
+const fs=require(`fs`);
+const path=require(`path`);
 
 //Q7 Find the strike rate of a batsman for each season
 
@@ -41,4 +43,6 @@ function Strike_Rate() {
   }
   return ansobj;
 }
-console.log(Strike_Rate());
+let Result=Strike_Rate();
+fs.writeFileSync(path.join(__dirname,`../public/output/Strike_Rate.json`),JSON.stringify(Result),"utf-8");
+

@@ -1,5 +1,7 @@
 const matchdata = require(`../data/matches.json`);
 const deliveriesdata = require(`../data/deliveries.json`);
+const fs=require(`fs`);
+const path=require(`path`);
 
 //Q4 Find the number of times each team won the toss and also won the match
 
@@ -19,4 +21,5 @@ function tosswon() {
   }
   return result;
 }
-console.log(tosswon());
+let Result=tosswon();
+fs.writeFileSync(path.join(__dirname,`../public/output/won-the-toss.json`),JSON.stringify(Result),"utf-8");
